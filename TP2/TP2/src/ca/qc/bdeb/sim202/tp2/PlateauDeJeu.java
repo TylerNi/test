@@ -71,21 +71,25 @@ public class PlateauDeJeu {
             for (int i = 0; i < listeCase.length; i++) {
                 switch (listeCase[i].getTypeCase()){
                     case "Sp" :
-
+                        contientSP = true;
                         break;
                     case "T" :
-
+                        contientT = true;
                         break;
                     case "D" :
-
+                        contientD = true;
                         break;
                     case "Tx" :
-
+                        contientTx = true;
                         break;
                     case "P" :
-
+                        contientP = true;
                         break;
                 }
+            }
+
+            if (!contientSP || !contientD || !contientTx || !contientP) {
+                estValide = false;
             }
 
 
