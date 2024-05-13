@@ -1,10 +1,13 @@
 package ca.qc.bdeb.sim202.tp2;
 
 public abstract class Case {
+
+    protected String typeCase;
     protected String nomCase;
     protected String descriptionCase;
 
-    public Case (String nomCase, String descriptionCase){
+    public Case (String typeCase, String nomCase, String descriptionCase){
+        this.typeCase = typeCase;
         this.nomCase = nomCase;
         this.descriptionCase = descriptionCase;
     }

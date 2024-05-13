@@ -1,8 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
 public class Terrain extends CasePropriete{
-    public Terrain(Joueur proprietaire, int prixAchat, int loyer, String nomCase) {
-        super(proprietaire, prixAchat, loyer, nomCase);
+    public Terrain(String typeCase, Joueur proprietaire, int prixAchat, int loyer, String nomCase) {
+        super(typeCase, proprietaire, prixAchat, loyer, nomCase);
     }
 
     public int setLoyer(int loyer, Joueur joueur){
