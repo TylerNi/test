@@ -25,5 +25,5 @@ public abstract class Case {
         this.descriptionCase = descriptionCase;
     }
 
-    abstract void faireAction();
+    abstract void faireAction(Joueur joueur);
 }

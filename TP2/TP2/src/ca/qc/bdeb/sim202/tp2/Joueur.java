@@ -4,11 +4,13 @@ public class Joueur {
     private String nom;
     private int nombreArgent;
     private int position;
+    private boolean estProprietaire;
 
     public Joueur (String nom, int nombreArgent, int position){
         this.nom = nom;
-        this.nombreArgent = 50;
-        this.position = 50;
+        this.nombreArgent = nombreArgent;
+        this.position = position;
+        this.estProprietaire = false;
     }
 
     public String getNom(){
@@ -28,6 +30,10 @@ public class Joueur {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public boolean isEstProprietaire() {
+        return estProprietaire;
     }
 }
 

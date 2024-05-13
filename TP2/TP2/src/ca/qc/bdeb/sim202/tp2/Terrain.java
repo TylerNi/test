@@ -5,8 +5,8 @@ public class Terrain extends CasePropriete{
         super(proprietaire, prixAchat, loyer, nomCase, descriptionCase);
     }
 
-    public int setLoyer(int loyer){
-        if (/*proprietere possède propriété*/){
+    public int setLoyer(int loyer, Joueur joueur){
+        if (joueur.isEstProprietaire()){
             loyer = loyer*2;
         }
 
@@ -30,4 +30,5 @@ public class Terrain extends CasePropriete{
 
         }
     }
+
 }

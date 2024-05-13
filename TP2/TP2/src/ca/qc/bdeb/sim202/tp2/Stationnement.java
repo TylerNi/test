@@ -6,7 +6,7 @@ public class Stationnement extends Case{
     }
 
     @Override
-    void faireAction() {
+    void faireAction(Joueur joueur) {
 
     }
 }

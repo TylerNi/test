@@ -8,7 +8,7 @@ public class Depart extends Case{
     }
 
     @Override
-    void faireAction() {
+    void faireAction(Joueur joueur) {
 
     }
 }
