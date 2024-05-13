@@ -29,4 +29,6 @@ public abstract class CasePropriete extends Case{
     public int getLoyer() {
         return loyer;
     }
+
+    abstract void faireAction(Joueur joueur);
 }
