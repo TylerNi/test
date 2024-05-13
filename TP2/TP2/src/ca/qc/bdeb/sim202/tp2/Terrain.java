@@ -14,7 +14,20 @@ public class Terrain extends CasePropriete{
     }
 
     @Override
-    void faireAction() {
+    void faireAction(Joueur joueur) {
+        if(getProprietaire() == null){
+            setProprietaire(/*joueurActuel*/);
+        }else if(getProprietaire() != /*joueurActuel*/){
+            int nombreArgent = joueur.getNombreArgent() - getLoyer();
+            joueur.setNombreArgent(nombreArgent);
 
+            nombreArgent = getProprietaire().getNombreArgent() + getLoyer();
+            getProprietaire().setNombreArgent(nombreArgent);
+        }else{
+            int nombreArgent = joueur.getNombreArgent();
+            nombreArgent = nombreArgent - getPrixAchat();
+            joueur.setNombreArgent(nombreArgent);
+
+        }
     }
 }
