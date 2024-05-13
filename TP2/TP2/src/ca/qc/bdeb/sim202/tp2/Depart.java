@@ -1,8 +1,10 @@
 package ca.qc.bdeb.sim202.tp2;
 
 public class Depart extends Case{
-    public Depart(String nomCase, String descriptionCase) {
+    private int moutantGagne;
+    public Depart(String nomCase, String descriptionCase, int moutantGagne) {
         super(nomCase, descriptionCase);
+        this.moutantGagne = moutantGagne;
     }
 
     @Override

@@ -7,8 +7,8 @@ public class Joueur {
 
     public Joueur (String nom, int nombreArgent, int position){
         this.nom = nom;
-        this.nombreArgent = /*argentDepart*/;
-        this.position = /*caseDepart*/;
+        this.nombreArgent = 50;
+        this.position = 50;
     }
 
     public String getNom(){
