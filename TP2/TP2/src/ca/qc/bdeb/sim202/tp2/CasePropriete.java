@@ -6,8 +6,8 @@ public abstract class CasePropriete extends Case{
     private int prixAchat;
     private int loyer;
 
-    public CasePropriete(Joueur proprietaire, int prixAchat, int loyer, String nomCase, String descriptionCase) {
-        super(nomCase, descriptionCase);
+    public CasePropriete(Joueur proprietaire, int prixAchat, int loyer, String nomCase ) {
+        super(nomCase, null);
         this.proprietaire = proprietaire;
         this.prixAchat = prixAchat;
         this.loyer = loyer;
