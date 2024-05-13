@@ -12,8 +12,8 @@ public class ServicePublic extends CasePropriete {
     @Override
     void faireAction(Joueur joueur) {
         if(getProprietaire() == null){
-            setProprietaire(Joueur joueur);
-        }else if(getProprietaire() != joueur.getNom()){
+            setProprietaire(joueur);
+        }else if(getProprietaire().getNom() != joueur.getNom()){
             int nombreArgent = joueur.getNombreArgent() - getLoyer();
              joueur.setNombreArgent(nombreArgent);
 
