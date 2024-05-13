@@ -9,7 +9,8 @@ import java.io.IOException;
 public class PlateauDeJeu {
 
     private static final String PLATEAU_BIN = "TP2/TP2/plateau.bin";
-    private String victor;
+
+    private Boolean estValide = true;
 
     private Case[] listeCase = new Case[15];
 
@@ -38,24 +39,56 @@ public class PlateauDeJeu {
 
                 switch(typeCase) {
                     case "D":
-                        listeCase[i] = new Depart(nom, description, montantPayer);
+                        listeCase[i] = new Depart(typeCase, nom, description, montantPayer);
                         break;
                     case "T":
-                        listeCase[i] = new Terrain(null, valeur,montantPayer, nom, description);
+                        listeCase[i] = new Terrain(typeCase,null, valeur,montantPayer, nom);
                         break;
                     case "Tx":
-                        listeCase[i] = new Taxe(nom,description, montantPayer);
+                        listeCase[i] = new Taxe(typeCase,nom,description, montantPayer);
                         break;
                     case "SP":
-                        listeCase[i] = new ServicePublic(null, valeur, nom,description);
+                        listeCase[i] = new ServicePublic(typeCase,null, valeur, nom);
                         break;
                     case "P":
-                        listeCase[i] = new Stationnement(nom,description);
+                        listeCase[i] = new Stationnement(typeCase,nom,description);
                         break;
 
                 }
 
+
             }
+
+            if (!listeCase[0].getNomCase().equals("Départ")){
+                estValide = false;
+            }
+            boolean contientSP = false;
+            boolean contientT = false;
+            boolean contientD = false;
+            boolean contientTx = false;
+            boolean contientP = false;
+
+            for (int i = 0; i < listeCase.length; i++) {
+                switch (listeCase[i].getTypeCase()){
+                    case "Sp" :
+
+                        break;
+                    case "T" :
+
+                        break;
+                    case "D" :
+
+                        break;
+                    case "Tx" :
+
+                        break;
+                    case "P" :
+
+                        break;
+                }
+            }
+
+
 
         } catch (IOException e) {
             System.out.println(e);

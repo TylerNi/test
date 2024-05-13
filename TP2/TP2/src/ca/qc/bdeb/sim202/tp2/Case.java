@@ -29,4 +29,8 @@ public abstract class Case {
     }
 
     abstract void faireAction(Joueur joueur);
+
+    public String getTypeCase() {
+        return typeCase;
+    }
 }
