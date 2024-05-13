@@ -9,6 +9,6 @@ public class Depart extends Case{
 
     @Override
     void faireAction(Joueur joueur) {
-
+        joueur.setNombreArgent(joueur.getNombreArgent()+moutantGagne);
     }
 }
