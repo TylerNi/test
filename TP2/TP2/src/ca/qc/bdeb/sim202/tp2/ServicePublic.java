@@ -5,8 +5,26 @@ public class ServicePublic extends CasePropriete {
         super(proprietaire, prixAchat, loyer, nomCase, descriptionCase);
     }
 
+    public int setLoyer(){
+        return 10 * /*Valeur dé*/ 1 /*temp*/;
+    }
+
     @Override
-    void faireAction() {
+    void faireAction(Joueur joueur) {
+        if(getProprietaire() == null){
+            setProprietaire(/*joueurActuel*/);
+        }else if(getProprietaire() != /*joueurActuel*/){
+            int nombreArgent = joueur.getNombreArgent() - getLoyer();
+             joueur.setNombreArgent(nombreArgent);
+
+             nombreArgent = getProprietaire().getNombreArgent() + getLoyer();
+             getProprietaire().setNombreArgent(nombreArgent);
+        }else{
+            int nombreArgent = joueur.getNombreArgent();
+            nombreArgent = nombreArgent - getPrixAchat();
+            joueur.setNombreArgent(nombreArgent);
+
+        }
 
     }
 }

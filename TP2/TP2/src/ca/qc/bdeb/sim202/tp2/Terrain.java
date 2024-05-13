@@ -5,6 +5,14 @@ public class Terrain extends CasePropriete{
         super(proprietaire, prixAchat, loyer, nomCase, descriptionCase);
     }
 
+    public int setLoyer(int loyer){
+        if (/*proprietere possède propriété*/){
+            loyer = loyer*2;
+        }
+
+        return loyer;
+    }
+
     @Override
     void faireAction() {
 

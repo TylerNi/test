@@ -2,7 +2,7 @@ package ca.qc.bdeb.sim202.tp2;
 
 public abstract class CasePropriete extends Case{
 
-    private Joueur proprietaire;
+    private Joueur proprietaire = null;
     private int prixAchat;
     private int loyer;
 
@@ -12,6 +12,10 @@ public abstract class CasePropriete extends Case{
         this.prixAchat = prixAchat;
         this.loyer = loyer;
 
+    }
+
+    public void setProprietaire(Joueur proprietaire) {
+        this.proprietaire = proprietaire;
     }
 
     public Joueur getProprietaire() {
