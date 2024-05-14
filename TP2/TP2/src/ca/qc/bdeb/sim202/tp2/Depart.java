@@ -1,14 +1,14 @@
 package ca.qc.bdeb.sim202.tp2;
 
 public class Depart extends Case{
-    private int moutantGagne;
-    public Depart(String typeCase,String nomCase, String descriptionCase, int moutantGagne) {
+    private int montantGagne;
+    public Depart(String typeCase,String nomCase, String descriptionCase, int montantGagne) {
         super(typeCase, nomCase, descriptionCase);
-        this.moutantGagne = moutantGagne;
+        this.montantGagne = montantGagne;
     }
 
     @Override
     void faireAction(Joueur joueur) {
-        joueur.setNombreArgent(joueur.getNombreArgent()+moutantGagne);
+        joueur.setNombreArgent(joueur.getNombreArgent()+montantGagne);
     }
 }

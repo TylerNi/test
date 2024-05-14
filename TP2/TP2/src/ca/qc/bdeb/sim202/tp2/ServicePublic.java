@@ -2,7 +2,7 @@ package ca.qc.bdeb.sim202.tp2;
 
 public class ServicePublic extends CasePropriete {
     public ServicePublic(String typeCase, Joueur proprietaire, int prixAchat, String nomCase) {
-        super(typeCase, proprietaire, prixAchat, 0, nomCase);
+        super(typeCase, proprietaire = null, prixAchat, 0, nomCase);
     }
 
 
