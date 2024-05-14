@@ -41,7 +41,7 @@ public class Main {
         choix = sc.nextLine();
 
         while (!choix.equals("1") && !choix.equals("2") && !choix.equals("3")) {
-            System.out.println("Le choix est invalide, il doit etre de 1, 2, X ou x");
+            System.out.println("Le choix est invalide, il doit etre de 1, 2 ou 3");
             System.out.print("Faites votre choix (1,3): ");
             choix = sc.nextLine();
         }
