@@ -1,3 +1,5 @@
+package ca.qc.bdeb.sim202.tp2;
+
 import ca.qc.bdeb.sim202.tp2.PlateauDeJeu;
 
 public class Main {
