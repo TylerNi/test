@@ -20,4 +20,9 @@ public class Depart extends Case{
             j.setNombreArgent(j.getNombreArgent() + montantGagne);
         }
     }
+
+    @Override
+    public String toString() {
+        return nomCase + ", " + descriptionCase + ", " + montantGagne + "$";
+    }
 }

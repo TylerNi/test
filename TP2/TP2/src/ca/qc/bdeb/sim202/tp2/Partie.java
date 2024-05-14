@@ -22,7 +22,7 @@ public class Partie implements Serializable {
         Case[] liste = plateauDeJeu.getListeCase();
 
         for (int i = 0; i < liste.length; i++) {
-            System.out.print(i+1);
+            System.out.print(i+1 + ": ");
             System.out.println(liste[i]);
         }
 

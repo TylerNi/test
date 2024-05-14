@@ -35,4 +35,6 @@ public abstract class Case {
     public String getTypeCase() {
         return typeCase;
     }
+
+
 }
