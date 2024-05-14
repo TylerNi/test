@@ -106,4 +106,8 @@ public class PlateauDeJeu {
             System.out.println(e);
         }
     }
+
+    public Case[] getListeCase() {
+        return listeCase;
+    }
 }

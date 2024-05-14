@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ChoixMenu choixMenu = menu();
 
         switch (menu()) {
             case CHARGER_SAUVEGARDE -> {
@@ -17,6 +16,7 @@ public class Main {
                 System.out.println();
                 LinkedList<Joueur> listeJoueur = MenuListeJoueur();
                 Partie partie = new Partie(plateauDeJeu, listeJoueur,0 );
+                partie.commencerPartie();
             }
             case QUITTER -> {
                 System.out.println("Merci d'avoir jouer, à la prochaine");

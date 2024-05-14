@@ -46,6 +46,7 @@ public class Joueur {
     public void setFaillite(boolean faillite) {
         this.faillite = faillite;
     }
+
 }
 
 

@@ -8,8 +8,10 @@ public class Depart extends Case{
     }
 
     @Override
-    void faireAction(Joueur joueur) {
-
+    void faireAction(Joueur j) {
+        if (!j.isFaillite()) {
+            j.setNombreArgent(j.getNombreArgent() + montantGagne);
+        }
     }
 
     @Override

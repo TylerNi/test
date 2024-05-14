@@ -8,12 +8,21 @@ public class Taxe extends Case{
     }
 
     @Override
-    void faireAction(Joueur joueur) {
-
+    void faireAction(Joueur j) {
+        if (!j.isFaillite()) {
+            if (j.getNombreArgent()<montantTaxe){
+                j.setFaillite(true);
+                j.setNombreArgent(0);
+            } else {
+                j.setNombreArgent(j.getNombreArgent() - montantTaxe );
+            }
+        }
     }
 
     @Override
     public void survolerCase(Joueur j) {
-
+        if (!j.isFaillite()) {
+            j.setNombreArgent(j.getNombreArgent() - (int) (montantTaxe*0.1) );
+        }
     }
 }
