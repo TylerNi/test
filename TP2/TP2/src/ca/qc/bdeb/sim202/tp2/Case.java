@@ -30,6 +30,8 @@ public abstract class Case {
 
     abstract void faireAction(Joueur joueur);
 
+    abstract public void survolerCase(Joueur j);
+
     public String getTypeCase() {
         return typeCase;
     }

@@ -11,4 +11,9 @@ public class Taxe extends Case{
     void faireAction(Joueur joueur) {
 
     }
+
+    @Override
+    public void survolerCase(Joueur j) {
+
+    }
 }

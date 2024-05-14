@@ -11,4 +11,9 @@ public class Depart extends Case{
     void faireAction(Joueur joueur) {
         joueur.setNombreArgent(joueur.getNombreArgent()+montantGagne);
     }
+
+    @Override
+    public void survolerCase(Joueur j) {
+
+    }
 }

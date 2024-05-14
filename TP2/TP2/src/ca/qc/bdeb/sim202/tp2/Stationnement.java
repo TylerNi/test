@@ -19,4 +19,9 @@ public class Stationnement extends Case{
             System.out.println("Place réservée aux handicapés.");
         }
     }
+
+    @Override
+    public void survolerCase(Joueur j) {
+
+    }
 }

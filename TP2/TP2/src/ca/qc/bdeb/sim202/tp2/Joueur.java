@@ -6,11 +6,14 @@ public class Joueur {
     private int position;
     private boolean estProprietaire;
 
+    private boolean faillite;
+
     public Joueur (String nom, int nombreArgent, int position){
         this.nom = nom;
         this.nombreArgent = nombreArgent;
         this.position = position;
         this.estProprietaire = false;
+        this.faillite = false;
     }
 
     public String getNom(){

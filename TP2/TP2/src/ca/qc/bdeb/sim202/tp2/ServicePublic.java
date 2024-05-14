@@ -22,4 +22,9 @@ public class ServicePublic extends CasePropriete {
 
         }//Si le joueur est propriétaire, rien.
     }
+
+    @Override
+    public void survolerCase(Joueur j) {
+
+    }
 }
