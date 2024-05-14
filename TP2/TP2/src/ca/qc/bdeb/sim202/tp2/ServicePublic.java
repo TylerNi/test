@@ -25,11 +25,11 @@ public class ServicePublic extends CasePropriete {
         }else if(getProprietaire().getNom().equals(joueur.getNom())){ //S'il y a un propriétaire autre que lui même,
             joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
             getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
-            System.out.println("\\033[38;2;255;105;180m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + ".");
-            System.out.println("\\033[38;2;255;105;180m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$");
+            System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + "." + "\033[35m");
+            System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$" + "\033[35m");
 
         }else {
-            System.out.println("\\033[38;2;255;105;180m" + joueur.getNom() + "est propriétaire de " + nomCase + ". Il a" + joueur.getNombreArgent() + "$");
+            System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + "est propriétaire de " + nomCase + ". Il a" + joueur.getNombreArgent() + "$" + "\033[35m");
         }
     }
 
