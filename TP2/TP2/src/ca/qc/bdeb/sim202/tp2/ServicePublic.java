@@ -27,4 +27,9 @@ public class ServicePublic extends CasePropriete {
     public void survolerCase(Joueur j) {
 
     }
+
+    @Override
+    public String toString() {
+        return nomCase + ": " + this.getPrixAchat() + ", " + getProprietaire() + "$";
+    }
 }

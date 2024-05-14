@@ -29,4 +29,6 @@ public class Terrain extends CasePropriete{
     public void survolerCase(Joueur j) {
 
     }
+
+
 }
