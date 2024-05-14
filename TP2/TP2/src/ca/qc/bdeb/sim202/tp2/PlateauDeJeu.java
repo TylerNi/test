@@ -88,7 +88,7 @@ public class PlateauDeJeu {
                 }
             }
 
-            if (!contientSP || !contientD || !contientTx || !contientP) {
+            if (!contientSP || !contientD || !contientTx || !contientP || !contientT) {
                 estValide = false;
             }
 
