@@ -1,10 +1,10 @@
 package ca.qc.bdeb.sim202.tp2;
 
 public class Taxe extends Case{
-    private int moutantPaye;
-    public Taxe(String typeCase, String nomCase, String descriptionCase, int moutantPaye) {
+    private int montantTaxe;
+    public Taxe(String typeCase, String nomCase, String descriptionCase, int montantTaxe) {
         super(typeCase, nomCase, descriptionCase);
-        this.moutantPaye = moutantPaye;
+        this.montantTaxe = montantTaxe;
     }
 
     @Override
