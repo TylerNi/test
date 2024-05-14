@@ -5,9 +5,6 @@ public class ServicePublic extends CasePropriete {
         super(typeCase, proprietaire = null, prixAchat, 0, nomCase);
     }
 
-
-
-
     public int setLoyer(int loyer, Joueur joueur){
         loyer = 10 * 1; //La valeur 1 est temporaire pour que le code puisse run,
         return loyer;   // il faudrait la remplacer par la valeur du dé.
@@ -24,6 +21,5 @@ public class ServicePublic extends CasePropriete {
             getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
 
         }//Si le joueur est propriétaire, rien.
-
     }
 }

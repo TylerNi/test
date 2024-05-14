@@ -9,7 +9,6 @@ public class Terrain extends CasePropriete{
         if (joueur.isEstProprietaire()){
             loyer = loyer*2;
         }
-
         return loyer;
     }
 
@@ -25,5 +24,4 @@ public class Terrain extends CasePropriete{
 
         }//Si le joueur est propriétaire, rien.
     }
-
 }
