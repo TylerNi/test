@@ -25,4 +25,9 @@ public class Taxe extends Case{
             j.setNombreArgent(j.getNombreArgent() - (int) (montantTaxe*0.1) );
         }
     }
+
+    @Override
+    public String toString() {
+        return nomCase + ": " + descriptionCase + ", " + montantTaxe + "$";
+    }
 }

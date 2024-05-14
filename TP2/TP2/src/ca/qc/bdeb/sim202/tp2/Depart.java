@@ -23,6 +23,6 @@ public class Depart extends Case{
 
     @Override
     public String toString() {
-        return nomCase + ", " + descriptionCase + ", " + montantGagne + "$";
+        return nomCase + ": " + descriptionCase + ", " + montantGagne + "$";
     }
 }

@@ -1,8 +1,11 @@
 package ca.qc.bdeb.sim202.tp2;
 
 public class Stationnement extends Case{
-    public Stationnement(String typeCase, String nomCase, String descriptionCase){
+
+    private int valeurTicket;
+    public Stationnement(String typeCase, String nomCase, String descriptionCase, int valeurTicket){
         super(typeCase, nomCase, descriptionCase);
+        this.valeurTicket = valeurTicket;
     }
 
     @Override
@@ -22,6 +25,10 @@ public class Stationnement extends Case{
 
     @Override
     public void survolerCase(Joueur j) {
+    }
 
+    @Override
+    public String toString() {
+        return nomCase + ": " + descriptionCase + ", " + valeurTicket + "$";
     }
 }
