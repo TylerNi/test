@@ -18,33 +18,48 @@ public class Partie implements Serializable {
         this.indicateur = indicateur;
     }
 
-    public void commencerPartie(){
+    public void commencerPartie() {
         System.out.println("************************ Le plateau ************************");
         Case[] liste = plateauDeJeu.getListeCase();
 
         for (int i = 0; i < liste.length; i++) {
             System.out.print("\033[34m" + i + ": \033[39m");
-            System.out.println("\033[34m" + liste[i] +"\033[39m");
+            System.out.println("\033[34m" + liste[i] + "\033[39m");
         }
 
-        {
+        ChoixMenuDansPartie choix;
+        do {
             Joueur joueurActuel;
 
             for (Joueur j : listeJoueur) {
                 if (j.isFaillite()) {
-                    System.out.println("\033[96m" + j.getNom() + " a fait faillite \033[39m");
+                    System.out.println("\033[36m" + j.getNom() + " a fait faillite \033[39m");
                 } else {
-                    System.out.println("\033[96m" + j.getNom() + "est sur la case : " + liste[j.getPosition()].getNomCase() + " et possède " + j.getNombreArgent() + "$.\033[39m");
+                    System.out.println("\033[36m" + j.getNom() + " est sur la case : " + liste[j.getPosition()].getNomCase() + " et possède " + j.getNombreArgent() + "$.\033[39m");
                 }
             }
 
             joueurActuel = listeJoueur.poll();
             listeJoueur.add(joueurActuel);
 
-            System.out.println("\033[96m" + "C'est au tour de " +joueurActuel + "\033[35m");
+            System.out.println("\033[36m" + "C'est au tour de " + joueurActuel.getNom() + "\033[35m");
+
+            choix = menu();
+
+            switch (choix) {
+                case LANCER_DE -> {
+                    int valeurDe = DePipe.lancer();
+                }
+                case SAUVEGARDER_ET_QUITTER -> {
+                    //
+                }
+                case METTRE_FIN_ET_QUITTER -> {
+
+                }
+            }
 
 
-        }
+        } while (choix != ChoixMenuDansPartie.METTRE_FIN_ET_QUITTER && choix != ChoixMenuDansPartie.SAUVEGARDER_ET_QUITTER);
     }
 
     public static ChoixMenuDansPartie menu() {
