@@ -30,5 +30,15 @@ public class Terrain extends CasePropriete{
 
     }
 
+    public String toString() {
+        String propietere;
+        if (getProprietaire() == null){
+            return nomCase + ": " + this.getPrixAchat() + "$, " + this.getLoyer() + "$, aucun propriétaire";
+        }else {
+            return nomCase + ": " + this.getPrixAchat() + "$, " + this.getLoyer()+ "$, appartient à: " + getProprietaire();
+        }
+
+    }
+
 
 }

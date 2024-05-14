@@ -30,6 +30,12 @@ public class ServicePublic extends CasePropriete {
 
     @Override
     public String toString() {
-        return nomCase + ": " + this.getPrixAchat() + ", " + getProprietaire() + "$";
+        String propietere;
+        if (getProprietaire() == null){
+            return nomCase + ": " + this.getPrixAchat() + "$ , aucun propriétaire";
+        }else {
+            return nomCase + ": " + this.getPrixAchat() + "$ , appartient à: " + getProprietaire();
+        }
+
     }
 }
