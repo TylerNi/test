@@ -16,7 +16,7 @@ public class ServicePublic extends CasePropriete {
             setProprietaire(joueur);
             joueur.setNombreArgent(joueur.getNombreArgent() - getPrixAchat());
 
-        }else if(getProprietaire().getNom() != joueur.getNom()){ //S'il y a un propriétaire autre que lui même,
+        }else if(getProprietaire().getNom().equals(joueur.getNom())){ //S'il y a un propriétaire autre que lui même,
             joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
             getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
 

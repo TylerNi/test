@@ -22,7 +22,7 @@ public class Partie implements Serializable {
         Case[] liste = plateauDeJeu.getListeCase();
 
         for (int i = 0; i < liste.length; i++) {
-            System.out.print("\033[34m" + i+1 + ": \033[39m");
+            System.out.print("\033[34m" + i + ": \033[39m");
             System.out.println("\033[34m" + liste[i] +"\033[39m");
         }
 
