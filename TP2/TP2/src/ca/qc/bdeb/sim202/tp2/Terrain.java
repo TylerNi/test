@@ -15,20 +15,15 @@ public class Terrain extends CasePropriete{
 
     @Override
     void faireAction(Joueur joueur) {
-        if(getProprietaire() == null){
+        if(getProprietaire() == null){ //S'il n'y a pas de propriétaire, le joueur l'achète.
             setProprietaire(joueur);
-        }else if(getProprietaire().getNom() != joueur.getNom()){
-            int nombreArgent = joueur.getNombreArgent() - getLoyer();
-            joueur.setNombreArgent(nombreArgent);
+            joueur.setNombreArgent(joueur.getNombreArgent() - getPrixAchat());
 
-            nombreArgent = getProprietaire().getNombreArgent() + getLoyer();
-            getProprietaire().setNombreArgent(nombreArgent);
-        }else{
-            int nombreArgent = joueur.getNombreArgent();
-            nombreArgent = nombreArgent - getPrixAchat();
-            joueur.setNombreArgent(nombreArgent);
+        }else if(getProprietaire().getNom() != joueur.getNom()){ //S'il y a un propriétaire autre que lui même,
+            joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
+            getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
 
-        }
+        }//Si le joueur est propriétaire, rien.
     }
 
 }
