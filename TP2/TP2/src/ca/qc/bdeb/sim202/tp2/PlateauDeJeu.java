@@ -1,6 +1,7 @@
 package ca.qc.bdeb.sim202.tp2;
 
 
+import javax.imageio.stream.ImageOutputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class PlateauDeJeu {
                         listeCase[i] = new ServicePublic(typeCase,null, valeur, nom);
                         break;
                     case "P":
-                        listeCase[i] = new Stationnement(typeCase,nom,description);
+                        listeCase[i] = new Stationnement(typeCase,nom,description, montantPayer);
                         break;
 
                 }
