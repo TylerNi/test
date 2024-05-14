@@ -26,4 +26,9 @@ public class Stationnement extends Case{
     @Override
     public void survolerCase(Joueur j) {
     }
+
+    @Override
+    public String toString() {
+        return nomCase + ": " + descriptionCase + ", " + valeurTicket + "$";
+    }
 }
