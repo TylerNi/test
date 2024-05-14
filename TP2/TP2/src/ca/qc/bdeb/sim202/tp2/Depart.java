@@ -9,11 +9,13 @@ public class Depart extends Case{
 
     @Override
     void faireAction(Joueur joueur) {
-        joueur.setNombreArgent(joueur.getNombreArgent()+montantGagne);
+
     }
 
     @Override
     public void survolerCase(Joueur j) {
-
+        if (!j.isFaillite()) {
+            j.setNombreArgent(j.getNombreArgent() + montantGagne);
+        }
     }
 }

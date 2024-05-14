@@ -38,6 +38,14 @@ public class Joueur {
     public boolean isEstProprietaire() {
         return estProprietaire;
     }
+
+    public boolean isFaillite() {
+        return faillite;
+    }
+
+    public void setFaillite(boolean faillite) {
+        this.faillite = faillite;
+    }
 }
 
 

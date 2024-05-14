@@ -17,6 +17,7 @@ public class PlateauDeJeu {
     public PlateauDeJeu() {
 
         try (DataInputStream lecteur = new DataInputStream(new FileInputStream(PLATEAU_BIN))){
+            System.out.print("Chargement et validation du plateau de jeu : ");
 
             for (int i = 0; i < listeCase.length; i++) {
                 String typeCase = null;
@@ -59,8 +60,9 @@ public class PlateauDeJeu {
 
             }
 
-            if (!listeCase[0].getNomCase().equals("Départ")){
+            if (!listeCase[0].getTypeCase().equals("D")){
                 estValide = false;
+                System.out.println("\033[31m Erreur car la première case n'est pas une case départ \033[39m");
             }
             boolean contientSP = false;
             boolean contientT = false;
@@ -70,7 +72,7 @@ public class PlateauDeJeu {
 
             for (int i = 0; i < listeCase.length; i++) {
                 switch (listeCase[i].getTypeCase()){
-                    case "Sp" :
+                    case "SP" :
                         contientSP = true;
                         break;
                     case "T" :
@@ -90,11 +92,17 @@ public class PlateauDeJeu {
 
             if (!contientSP || !contientD || !contientTx || !contientP || !contientT) {
                 estValide = false;
+                System.out.println("\033[31m Erreur car le plateau de jeu ne contient pas tous les types de case \033[39m");
+            }
+
+            if (estValide) {
+                System.out.println("\033[32m Ok \033[39m");
             }
 
 
 
         } catch (IOException e) {
+            System.out.println("\033[31m Erreur avec le fichier \033[39m");
             System.out.println(e);
         }
     }
