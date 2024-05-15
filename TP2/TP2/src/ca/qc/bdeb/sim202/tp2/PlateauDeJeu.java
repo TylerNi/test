@@ -7,7 +7,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
-
+/**
+ * Classe représentant le plateau de jeu.
+ * Cette classe est sérialisable pour permettre la sauvegarde et le chargement de l'état du jeu.
+ */
 public class PlateauDeJeu implements Serializable {
 
     private static final String PLATEAU_BIN = "TP2/TP2/plateau.bin";
@@ -16,6 +19,10 @@ public class PlateauDeJeu implements Serializable {
 
     private Case[] listeCase = new Case[15];
 
+    /**
+     * Constructeur pour la classe PlateauDeJeu.
+     * Charge et valide le plateau de jeu à partir d'un fichier binaire.
+     */
     public PlateauDeJeu() {
 
         try (DataInputStream lecteur = new DataInputStream(new FileInputStream(PLATEAU_BIN))){
@@ -109,6 +116,11 @@ public class PlateauDeJeu implements Serializable {
         }
     }
 
+    /**
+     * Renvoie la liste des cases sur le plateau de jeu.
+     *
+     * @return un tableau de cases
+     */
     public Case[] getListeCase() {
         return listeCase;
     }

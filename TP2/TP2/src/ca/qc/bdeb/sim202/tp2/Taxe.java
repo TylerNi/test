@@ -2,13 +2,31 @@ package ca.qc.bdeb.sim202.tp2;
 
 import java.io.Serializable;
 
+/**
+ * Classe représentant une case de taxe sur le plateau de jeu.
+ * Cette classe est sérialisable pour permettre la sauvegarde et le chargement de l'état du jeu.
+ */
 public class Taxe extends Case implements Serializable {
     private int montantTaxe;
+
+    /**
+     * Constructeur pour la classe Taxe.
+     *
+     * @param typeCase le type de la case
+     * @param nomCase le nom de la case
+     * @param descriptionCase la description de la case
+     * @param montantTaxe le montant de la taxe
+     */
     public Taxe(String typeCase, String nomCase, String descriptionCase, int montantTaxe) {
         super(typeCase, nomCase, descriptionCase);
         this.montantTaxe = montantTaxe;
     }
 
+    /**
+     * Définit l'action à effectuer lorsqu'un joueur arrive sur cette case.
+     *
+     * @param j le joueur qui arrive sur la case
+     */
     @Override
     void faireAction(Joueur j) {
         if (!j.isFaillite()) {
@@ -24,6 +42,11 @@ public class Taxe extends Case implements Serializable {
         }
     }
 
+    /**
+     * Définit l'action à effectuer lorsqu'un joueur survole cette case.
+     *
+     * @param j le joueur qui survole la case
+     */
     @Override
     public void survolerCase(Joueur j) {
         if (!j.isFaillite()) {
@@ -39,6 +62,11 @@ public class Taxe extends Case implements Serializable {
         }
     }
 
+    /**
+     * Renvoie une représentation sous forme de chaîne de la case.
+     *
+     * @return une représentation sous forme de chaîne de la case
+     */
     @Override
     public String toString() {
         return nomCase + ": " + descriptionCase + ", " + montantTaxe + "$";

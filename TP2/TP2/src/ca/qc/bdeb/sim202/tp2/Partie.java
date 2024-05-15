@@ -4,6 +4,10 @@ import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * Classe représentant une partie du jeu.
+ * Cette classe est sérialisable pour permettre la sauvegarde et le chargement de l'état du jeu.
+ */
 public class Partie implements Serializable {
 
     private static final String SAUVEGARDE_DAT = "TP2/TP2/sauvegarde.dat";
@@ -16,6 +20,11 @@ public class Partie implements Serializable {
 
     private LinkedList<Joueur> gagnant;
 
+    /**
+     * Constructeur de la classe Partie.
+     * @param plateauDeJeu Le plateau de jeu sur lequel la partie se déroule.
+     * @param listeJoueur La liste des joueurs participant à la partie.
+     */
     public Partie(PlateauDeJeu plateauDeJeu, LinkedList<Joueur> listeJoueur) {
         this.plateauDeJeu = plateauDeJeu;
         this.listeJoueur = listeJoueur;
@@ -23,6 +32,9 @@ public class Partie implements Serializable {
         this.gagnant = new LinkedList<>();
     }
 
+    /**
+     * Méthode pour introduire la partie.
+     */
     public void introPArtie() {
         System.out.println();
         System.out.println("************************ Le plateau ************************");
@@ -35,6 +47,9 @@ public class Partie implements Serializable {
 
     }
 
+    /**
+     * Méthode pour jouer la partie.
+     */
     public void jouerPartie() {
         if (!partieEstTerminer) {
             Case[] liste = plateauDeJeu.getListeCase();
@@ -148,6 +163,11 @@ public class Partie implements Serializable {
         }
     }
 
+    /**
+     * Détermine le ou les gagnants de la partie.
+     *
+     * @return une liste de joueurs qui ont gagné la partie
+     */
     private LinkedList<Joueur> determinerGagant() {
         int tempArgent = 0;
         LinkedList<Joueur> tempJoueurRiche = new LinkedList<>();
@@ -173,6 +193,11 @@ public class Partie implements Serializable {
         return tempJoueurRiche;
     }
 
+    /**
+     * Affiche un menu pour le joueur et renvoie le choix du joueur.
+     *
+     * @return le choix du joueur sous forme de valeur de l'énumération ChoixMenuDansPartie
+     */
     public static ChoixMenuDansPartie menu() {
         Scanner sc = new Scanner(System.in);
         String choix;
@@ -196,6 +221,11 @@ public class Partie implements Serializable {
         return ChoixMenuDansPartie.getValeurAvecIndice(choix);
     }
 
+    /**
+     * Sauvegarde l'état actuel de la partie dans un fichier.
+     *
+     * @param partie la partie à sauvegarder
+     */
     public static void sauvegarderPartie(Partie partie) {
         try (FileOutputStream fos = new FileOutputStream(SAUVEGARDE_DAT);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
@@ -205,6 +235,11 @@ public class Partie implements Serializable {
         }
     }
 
+    /**
+     * Lit l'état d'une partie à partir d'un fichier.
+     *
+     * @return la partie lue à partir du fichier
+     */
     public static Partie lirePartie() {
         try (FileInputStream fichier = new FileInputStream(SAUVEGARDE_DAT);
              ObjectInputStream ois = new ObjectInputStream(fichier)) {
@@ -219,6 +254,11 @@ public class Partie implements Serializable {
         return null;
     }
 
+    /**
+     * Renvoie si la partie est terminée ou non.
+     *
+     * @return vrai si la partie est terminée, faux sinon
+     */
     public boolean isPartieEstTerminer() {
         return partieEstTerminer;
     }

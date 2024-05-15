@@ -2,16 +2,41 @@ package ca.qc.bdeb.sim202.tp2;
 
 import java.io.Serializable;
 
+/**
+ * Classe représentant un service public sur le plateau de jeu.
+ * Cette classe est sérialisable pour permettre la sauvegarde et le chargement de l'état du jeu.
+ */
 public class ServicePublic extends CasePropriete implements Serializable {
+
+    /**
+     * Constructeur pour la classe ServicePublic.
+     *
+     * @param typeCase le type de la case
+     * @param proprietaire le propriétaire de la case
+     * @param prixAchat le prix d'achat de la case
+     * @param nomCase le nom de la case
+     */
     public ServicePublic(String typeCase, Joueur proprietaire, int prixAchat, String nomCase) {
         super(typeCase, proprietaire = null, prixAchat, 0, nomCase);
     }
 
-    public int setLoyer(int loyer, Joueur joueur){
-        loyer = 10 * 1; //La valeur 1 est temporaire pour que le code puisse run,
-        return loyer;   // il faudrait la remplacer par la valeur du dé.
+    /**
+     * Définit le loyer de la case.
+     *
+     * @param loyer le loyer de la case
+     * @param joueur le joueur qui paie le loyer
+     * @return le loyer de la case
+     */
+    public int setLoyer(int loyer, Joueur joueur, int valeurDe){
+        loyer = 10 * valeurDe;
+        return loyer;
     }
 
+    /**
+     * Définit l'action à effectuer lorsqu'un joueur arrive sur cette case.
+     *
+     * @param joueur le joueur qui arrive sur la case
+     */
     @Override
     void faireAction(Joueur joueur) {
         System.out.println();
@@ -46,11 +71,21 @@ public class ServicePublic extends CasePropriete implements Serializable {
         }
     }
 
+    /**
+     * Définit l'action à effectuer lorsqu'un joueur survole cette case.
+     *
+     * @param j le joueur qui survole la case
+     */
     @Override
     public void survolerCase(Joueur j) {
 
     }
 
+    /**
+     * Renvoie une représentation sous forme de chaîne de la case.
+     *
+     * @return une représentation sous forme de chaîne de la case
+     */
     @Override
     public String toString() {
         String propietere;

@@ -2,11 +2,32 @@ package ca.qc.bdeb.sim202.tp2;
 
 import java.io.Serializable;
 
+/**
+ * Classe représentant un terrain sur le plateau de jeu.
+ * Cette classe est sérialisable pour permettre la sauvegarde et le chargement de l'état du jeu.
+ */
 public class Terrain extends CasePropriete implements Serializable {
+
+    /**
+     * Constructeur pour la classe Terrain.
+     *
+     * @param typeCase le type de la case
+     * @param proprietaire le propriétaire de la case
+     * @param prixAchat le prix d'achat de la case
+     * @param loyer le loyer de la case
+     * @param nomCase le nom de la case
+     */
     public Terrain(String typeCase, Joueur proprietaire, int prixAchat, int loyer, String nomCase) {
         super(typeCase, proprietaire = null, prixAchat, loyer, nomCase);
     }
 
+    /**
+     * Définit le loyer de la case.
+     *
+     * @param loyer le loyer de la case
+     * @param joueur le joueur a qui le terrain appartient
+     * @return le loyer de la case
+     */
     public int setLoyer(int loyer, Joueur joueur){
         if (joueur.isEstProprietaire()){
             loyer = loyer*2;
@@ -14,6 +35,11 @@ public class Terrain extends CasePropriete implements Serializable {
         return loyer;
     }
 
+    /**
+     * Définit l'action à effectuer lorsqu'un joueur arrive sur cette case.
+     *
+     * @param joueur le joueur qui arrive sur la case
+     */
     @Override
     void faireAction(Joueur joueur) {
         System.out.println();
@@ -48,11 +74,21 @@ public class Terrain extends CasePropriete implements Serializable {
         }
     }
 
+    /**
+     * Définit l'action à effectuer lorsqu'un joueur survole cette case.
+     *
+     * @param j le joueur qui survole la case
+     */
     @Override
     public void survolerCase(Joueur j) {
 
     }
 
+    /**
+     * Renvoie une représentation sous forme de chaîne de la case.
+     *
+     * @return une représentation sous forme de chaîne de la case
+     */
     public String toString() {
         if (getProprietaire() == null){
             return nomCase + ": " + this.getPrixAchat() + "$, " + this.getLoyer() + "$, aucun propriétaire";

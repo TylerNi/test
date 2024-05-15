@@ -3,7 +3,15 @@ package ca.qc.bdeb.sim202.tp2;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * Classe principale du programme.
+ */
 public class Main {
+    /**
+     * Point d'entrée principal du programme.
+     *
+     * @param args les arguments de la ligne de commande
+     */
     public static void main(String[] args) {
 
         switch (menu()) {
@@ -31,6 +39,11 @@ public class Main {
 
     }
 
+    /**
+     * Affiche le menu principal et renvoie le choix de l'utilisateur.
+     *
+     * @return le choix de l'utilisateur sous forme de valeur de l'énumération ChoixMenu
+     */
     public static ChoixMenu menu() {
         Scanner sc = new Scanner(System.in);
         String choix;
@@ -52,6 +65,11 @@ public class Main {
         return ChoixMenu.getValeurAvecIndice(choix);
     }
 
+    /**
+     * Crée une liste de joueurs en fonction des entrées de l'utilisateur.
+     *
+     * @return une liste de joueurs
+     */
     public static LinkedList<Joueur> MenuListeJoueur() {
         int nombreJoueur;
         LinkedList<Joueur> listeJoueur;
