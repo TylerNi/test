@@ -54,7 +54,6 @@ public class Terrain extends CasePropriete implements Serializable {
     }
 
     public String toString() {
-        String propietere;
         if (getProprietaire() == null){
             return nomCase + ": " + this.getPrixAchat() + "$, " + this.getLoyer() + "$, aucun propriétaire";
         }else {

@@ -70,7 +70,12 @@ public class Joueur implements Serializable {
         if (isFaillite()){
             return nom + " a fait faillite";
         } else {
-            return nom + " possède: les propriétés " + listePropriete.toString() + " et il a fini avec: " + nombreArgent;
+            String stringP = "";
+            for (CasePropriete caseP:this.listePropriete) {
+                stringP += caseP.nomCase + " - ";
+            }
+
+            return nom + " possède: les propriétés " + stringP + " et il a fini avec: " + nombreArgent;
         }
     }
 }

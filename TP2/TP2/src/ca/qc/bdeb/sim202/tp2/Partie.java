@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Partie implements Serializable {
 
-    private static final String SAUVEGARDE_DAT = "sauvegarde.dat";
+    private static final String SAUVEGARDE_DAT = "TP2/TP2/sauvegarde.dat";
 
     private PlateauDeJeu plateauDeJeu;
 
@@ -133,7 +133,7 @@ public class Partie implements Serializable {
             if (choix == ChoixMenuDansPartie.SAUVEGARDER_ET_QUITTER) {
                 System.out.println("La partie a été sauvegardée");
             } else {
-                if (listeJoueur.size() == 1) {
+                if (gagnant.size() == 1) {
                     System.out.println("La partie est terminée et le gagant est " + gagnant.get(0).getNom());
                 } else {
                     System.out.print("La partie est terminée et les gagants sont ");
