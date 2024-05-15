@@ -10,11 +10,14 @@ public class Taxe extends Case{
     @Override
     void faireAction(Joueur j) {
         if (!j.isFaillite()) {
+            System.out.println();
             if (j.getNombreArgent()<montantTaxe){
                 j.setFaillite(true);
                 j.setNombreArgent(0);
+                System.out.println("Oh non, " + j.getNom() + " n'a pas assez d'argent, il fait faillite.");
             } else {
                 j.setNombreArgent(j.getNombreArgent() - montantTaxe );
+                System.out.println(j.getNom() + " a payé une taxe de " + montantTaxe + "$. Il lui reste" + j.getNombreArgent() +"$");
             }
         }
     }
@@ -22,8 +25,15 @@ public class Taxe extends Case{
     @Override
     public void survolerCase(Joueur j) {
         if (!j.isFaillite()) {
-            j.setNombreArgent(j.getNombreArgent() - (int) (montantTaxe*0.1) );
-            System.out.println("Vous devez payer " + (int) (montantTaxe*0.1) + "$ en taxes" );
+            System.out.println();
+            if (j.getNombreArgent()<montantTaxe * .1){
+                j.setFaillite(true);
+                j.setNombreArgent(0);
+                System.out.println("Oh non, " + j.getNom() + " n'a pas assez d'argent, il fait faillite.");
+            } else {
+                j.setNombreArgent(j.getNombreArgent() - (int) (montantTaxe * .1));
+                System.out.println(j.getNom() + " a payé une taxe de " + montantTaxe*.1 + "$. En passant sur la case taxe. Il lui reste" + j.getNombreArgent() +"$");
+            }
         }
     }
 

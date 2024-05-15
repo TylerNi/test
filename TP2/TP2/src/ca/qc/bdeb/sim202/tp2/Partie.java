@@ -23,6 +23,7 @@ public class Partie implements Serializable {
 
     public void commencerPartie() {
         if (!partieEstTerminer) {
+            System.out.println();
             System.out.println("************************ Le plateau ************************");
             Case[] liste = plateauDeJeu.getListeCase();
 
@@ -49,6 +50,8 @@ public class Partie implements Serializable {
                 if (!partieEstTerminer) {
                     Joueur joueurActuel;
 
+                    System.out.println();
+                    System.out.println("********** Les joueurs **********");
                     for (Joueur j : listeJoueur) {
                         if (j.isFaillite()) {
                             System.out.println("\033[36m" + j.getNom() + " a fait faillite \033[39m");
@@ -60,7 +63,8 @@ public class Partie implements Serializable {
                     joueurActuel = listeJoueur.poll();
 
                     if (!joueurActuel.isFaillite()) {
-                        System.out.println("\033[36m" + "C'est au tour de " + joueurActuel.getNom() + "\033[35m");
+                        System.out.println();
+                        System.out.println("\033[96m" + "C'est au tour de " + joueurActuel.getNom() + "\033[35m");
                     }
 
                     choix = menu();
@@ -69,7 +73,7 @@ public class Partie implements Serializable {
                         case LANCER_DE -> {
                             if (!joueurActuel.isFaillite()) {
                                 int valeurDe = DePipe.lancer();
-                                System.out.println("Le joueur " + joueurActuel.getNom() + " a obtenu: " + valeurDe);
+                                System.out.println(joueurActuel.getNom() + " a obtenu: " + valeurDe);
 
                                 if (joueurActuel.getPosition() == 14) {
                                     joueurActuel.setPosition(0);
@@ -162,6 +166,7 @@ public class Partie implements Serializable {
         String choix;
 
         System.out.println("""
+                
                 1) Lancer le dé\s
                 2) Sauvegarder et quitter\s
                 3) Mettre fin et quitter""");

@@ -11,15 +11,18 @@ public class Stationnement extends Case{
     @Override
     void faireAction(Joueur joueur) {
         int deStationement = DePipe.lancer();
+        System.out.println();
         if (deStationement == 2){
             joueur.setNombreArgent(joueur.getNombreArgent() - deStationement * valeurTicket);
-            System.out.println("Stationnement interdit les jours de semaine.");
+            System.out.println(deStationement +  ": Stationnement interdit les jours de semaine.");
         } else if (deStationement == 4){
             joueur.setNombreArgent(joueur.getNombreArgent() - deStationement * valeurTicket);
-            System.out.println("Stationnement réservé aux détenteurs de permis.");
+            System.out.println(deStationement + ": Stationnement réservé aux détenteurs de permis.");
         } else if (deStationement == 6){
             joueur.setNombreArgent(joueur.getNombreArgent() - deStationement * valeurTicket);
-            System.out.println("Place réservée aux handicapés.");
+            System.out.println(deStationement + ": Place réservée aux handicapés.");
+        }else {
+            System.out.println(deStationement + ": Stationement ici! Je pense que j'ai le droit de stationner!");
         }
     }
 
