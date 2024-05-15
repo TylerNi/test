@@ -1,6 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
-public class Terrain extends CasePropriete{
+import java.io.Serializable;
+
+public class Terrain extends CasePropriete implements Serializable {
     public Terrain(String typeCase, Joueur proprietaire, int prixAchat, int loyer, String nomCase) {
         super(typeCase, proprietaire = null, prixAchat, loyer, nomCase);
     }

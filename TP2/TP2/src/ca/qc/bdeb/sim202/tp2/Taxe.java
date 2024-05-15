@@ -1,6 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
-public class Taxe extends Case{
+import java.io.Serializable;
+
+public class Taxe extends Case implements Serializable {
     private int montantTaxe;
     public Taxe(String typeCase, String nomCase, String descriptionCase, int montantTaxe) {
         super(typeCase, nomCase, descriptionCase);

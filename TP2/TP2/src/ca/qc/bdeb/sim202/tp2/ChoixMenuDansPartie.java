@@ -1,11 +1,13 @@
 package ca.qc.bdeb.sim202.tp2;
 
+import java.io.Serializable;
+
 /**
  * @author vikmo (Victor Morais)
  * <p>
  * ChoixMenu est une enum pour définir les options du menu 1
  */
-public enum ChoixMenuDansPartie {
+public enum ChoixMenuDansPartie implements Serializable {
     LANCER_DE("1"),
     SAUVEGARDER_ET_QUITTER("2"),
     METTRE_FIN_ET_QUITTER("3");

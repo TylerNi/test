@@ -1,6 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
-public abstract class Case {
+import java.io.Serializable;
+
+public abstract class Case implements Serializable {
 
     protected String typeCase;
     protected String nomCase;

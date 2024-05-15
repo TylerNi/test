@@ -1,6 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
-public abstract class CasePropriete extends Case{
+import java.io.Serializable;
+
+public abstract class CasePropriete extends Case implements Serializable {
 
     private Joueur proprietaire = null;
     private int prixAchat;

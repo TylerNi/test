@@ -5,9 +5,10 @@ import javax.imageio.stream.ImageOutputStream;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.Serializable;
 
 
-public class PlateauDeJeu {
+public class PlateauDeJeu implements Serializable {
 
     private static final String PLATEAU_BIN = "TP2/TP2/plateau.bin";
 

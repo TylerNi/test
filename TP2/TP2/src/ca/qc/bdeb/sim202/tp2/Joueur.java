@@ -1,8 +1,9 @@
 package ca.qc.bdeb.sim202.tp2;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Joueur {
+public class Joueur implements Serializable {
     private String nom;
     private int nombreArgent;
     private int position;

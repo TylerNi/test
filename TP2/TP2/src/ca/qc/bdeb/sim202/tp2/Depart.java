@@ -1,6 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
-public class Depart extends Case{
+import java.io.Serializable;
+
+public class Depart extends Case implements Serializable {
     private int montantGagne;
     public Depart(String typeCase,String nomCase, String descriptionCase, int montantGagne) {
         super(typeCase, nomCase, descriptionCase);

@@ -1,6 +1,8 @@
 package ca.qc.bdeb.sim202.tp2;
 
-public class Stationnement extends Case{
+import java.io.Serializable;
+
+public class Stationnement extends Case implements Serializable {
 
     private int valeurTicket;
     public Stationnement(String typeCase, String nomCase, String descriptionCase, int valeurTicket){
@@ -10,6 +12,8 @@ public class Stationnement extends Case{
 
     @Override
     void faireAction(Joueur joueur) {
+        System.out.println();
+        System.out.println("Vous êtes sur la case: " + nomCase);
         int deStationement = DePipe.lancer();
         System.out.println();
         if (deStationement == 2){
