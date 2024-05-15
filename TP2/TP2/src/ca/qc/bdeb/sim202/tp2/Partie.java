@@ -1,10 +1,12 @@
 package ca.qc.bdeb.sim202.tp2;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Partie implements Serializable {
+
+    private static final String SAUVEGARDE_DAT = "sauvegarde.dat";
 
     private PlateauDeJeu plateauDeJeu;
 
@@ -21,7 +23,7 @@ public class Partie implements Serializable {
         this.gagnant = new LinkedList<>();
     }
 
-    public void commencerPartie() {
+    public void commencerPartie(Partie partie) {
         if (!partieEstTerminer) {
             System.out.println();
             System.out.println("************************ Le plateau ************************");
@@ -112,7 +114,7 @@ public class Partie implements Serializable {
                         }
                         case SAUVEGARDER_ET_QUITTER -> {
                             listeJoueur.add(joueurActuel);
-                            sauvegarderPartie();
+                            sauvegarderPartie(partie);
                         }
                         case METTRE_FIN_ET_QUITTER -> {
                             listeJoueur.add(joueurActuel);
@@ -191,8 +193,24 @@ public class Partie implements Serializable {
         return ChoixMenuDansPartie.getValeurAvecIndice(choix);
     }
 
-    public void sauvegarderPartie(){
-
+    public static void sauvegarderPartie(Partie partie) {
+        try (FileOutputStream fos = new FileOutputStream(SAUVEGARDE_DAT);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(partie);
+        } catch (IOException e) {
+            System.out.println("Erreur d'entrées-sorties");
+        }
     }
 
+    public static Partie lirePartie(){
+        try (FileInputStream fichier = new FileInputStream(SAUVEGARDE_DAT);
+             ObjectInputStream ois = new ObjectInputStream(fichier)) {
+            return  (Partie) ois.readObject();
+        } catch (java.io.IOException e) {
+            System.out.println("Erreur d'entrées-sorties");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Erreur classe introuvable");
+        }
+        return null;
+    }
 }

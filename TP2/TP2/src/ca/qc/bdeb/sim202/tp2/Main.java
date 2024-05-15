@@ -8,7 +8,8 @@ public class Main {
 
         switch (menu()) {
             case CHARGER_SAUVEGARDE -> {
-
+                Partie partie = Partie.lirePartie();
+                partie.commencerPartie(partie);
             }
             case NOUVELLE_PARTIE -> {
                 System.out.println("\033[33mCréation d'une nouvelle partie \033[39m");
@@ -16,7 +17,7 @@ public class Main {
                 System.out.println();
                 LinkedList<Joueur> listeJoueur = MenuListeJoueur();
                 Partie partie = new Partie(plateauDeJeu, listeJoueur, 0);
-                partie.commencerPartie();
+                partie.commencerPartie(partie);
             }
             case QUITTER -> {
                 System.out.println("Merci d'avoir jouer, à la prochaine");
