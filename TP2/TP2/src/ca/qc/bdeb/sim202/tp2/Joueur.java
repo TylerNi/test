@@ -1,10 +1,14 @@
 package ca.qc.bdeb.sim202.tp2;
 
+import java.util.LinkedList;
+
 public class Joueur {
     private String nom;
     private int nombreArgent;
     private int position;
     private boolean estProprietaire;
+
+    private LinkedList<CasePropriete> listePropriete;
 
     private boolean faillite;
 
@@ -14,6 +18,7 @@ public class Joueur {
         this.position = position;
         this.estProprietaire = false;
         this.faillite = false;
+        this.listePropriete = new LinkedList<>();
     }
 
     public String getNom(){
@@ -45,6 +50,18 @@ public class Joueur {
 
     public void setFaillite(boolean faillite) {
         this.faillite = faillite;
+    }
+
+    public void ajouterPropriete(CasePropriete casePropriete) {
+        listePropriete.add(casePropriete);
+    }
+
+    public int retourneArgentTotal(){
+        int argentTotal = getNombreArgent();
+        for (CasePropriete caseP:listePropriete) {
+            argentTotal += caseP.getPrixAchat();
+        }
+        return argentTotal;
     }
 
 }

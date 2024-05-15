@@ -15,12 +15,11 @@ public class Main {
                 PlateauDeJeu plateauDeJeu = new PlateauDeJeu();
                 System.out.println();
                 LinkedList<Joueur> listeJoueur = MenuListeJoueur();
-                Partie partie = new Partie(plateauDeJeu, listeJoueur,0 );
+                Partie partie = new Partie(plateauDeJeu, listeJoueur, 0);
                 partie.commencerPartie();
             }
             case QUITTER -> {
                 System.out.println("Merci d'avoir jouer, à la prochaine");
-                Partie partie = null;
             }
         }
 
@@ -66,7 +65,7 @@ public class Main {
                     break;
                 }
             }
-            if (nombreJoueur<2) {
+            if (nombreJoueur < 2) {
                 System.out.println("il faut un minimum de 2 joueurs pour commencer, veuillez recommencer");
             }
         } while (nombreJoueur < 2);
