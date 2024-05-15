@@ -32,7 +32,7 @@ public class Taxe extends Case{
                 System.out.println("Oh non, " + j.getNom() + " n'a pas assez d'argent, il fait faillite.");
             } else {
                 j.setNombreArgent(j.getNombreArgent() - (int) (montantTaxe * .1));
-                System.out.println(j.getNom() + " a payé une taxe de " + montantTaxe*.1 + "$. En passant sur la case taxe. Il lui reste" + j.getNombreArgent() +"$");
+                System.out.println(j.getNom() + " a payé une taxe de " + (int) (montantTaxe*.1) + "$. En passant sur la case taxe. Il lui reste" + j.getNombreArgent() +"$");
             }
         }
     }

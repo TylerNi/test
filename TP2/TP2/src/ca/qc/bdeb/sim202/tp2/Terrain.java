@@ -21,21 +21,21 @@ public class Terrain extends CasePropriete{
             if (joueur.getNombreArgent() >= getPrixAchat()) {
                 setProprietaire(joueur);
                 joueur.setNombreArgent(joueur.getNombreArgent() - getPrixAchat());
-                System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " a acheté " + nomCase + " pour " + this.getPrixAchat() + ". Il lui reste " + joueur.getNombreArgent() + "$");
+                System.out.println("\033[38m" + joueur.getNom() + " a acheté " + nomCase + " pour " + this.getPrixAchat() + ". Il lui reste " + joueur.getNombreArgent() + "$" + "\033[39m");
                 joueur.ajouterPropriete(this);
             }else {
-                System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " n'a pas assez d'argent, il ne peut donc pas acheter " + nomCase);
+                System.out.println("\033[38m" + joueur.getNom() + " n'a pas assez d'argent, il ne peut donc pas acheter " + nomCase + "\033[39m");
             }
 
         }else if(getProprietaire().getNom().equals(joueur.getNom())){ //S'il y a un propriétaire autre que lui même,
             System.out.println("Cette case appartient a " + getProprietaire().getNom());
             joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
             getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
-            System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + ".");
-            System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$");
+            System.out.println("\033[38m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + ".");
+            System.out.println("\033[38m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$" + "\033[39m");
 
         }else {
-            System.out.println("\033[38;2;255;105;180m" + joueur.getNom() + " est propriétaire de " + nomCase + ". Il n'a donc rien a payé. Il a " + joueur.getNombreArgent() + "$");
+            System.out.println("\033[38m" + joueur.getNom() + " est propriétaire de " + nomCase + ". Il n'a donc rien a payé. Il a " + joueur.getNombreArgent() + "$" + "\033[39m");
         }
     }
 
