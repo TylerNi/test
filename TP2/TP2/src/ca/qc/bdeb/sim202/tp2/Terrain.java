@@ -30,11 +30,18 @@ public class Terrain extends CasePropriete implements Serializable {
             }
 
         }else if(getProprietaire().getNom().equals(joueur.getNom())){ //S'il y a un propriétaire autre que lui même,
-            System.out.println("Cette case appartient a " + getProprietaire().getNom());
-            joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
-            getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
-            System.out.println("\033[38m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + ".");
-            System.out.println("\033[38m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$" + "\033[39m");
+            if (joueur.getNombreArgent() >= getLoyer()) {
+                System.out.println("Cette case appartient a " + getProprietaire().getNom());
+                joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
+                getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
+                System.out.println("\033[38m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + ".");
+                System.out.println("\033[38m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$" + "\033[39m");
+            }else {
+                getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + joueur.getNombreArgent());
+                joueur.setNombreArgent(0);
+                joueur.setFaillite(true);
+                System.out.println("Oh non, " + joueur.getNom() + " n'a pas assez d'argent pour pauer le loyer. Il fait faillite.");
+            }
 
         }else {
             System.out.println("\033[38m" + joueur.getNom() + " est propriétaire de " + nomCase + ". Il n'a donc rien a payé. Il a " + joueur.getNombreArgent() + "$" + "\033[39m");
