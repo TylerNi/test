@@ -111,9 +111,11 @@ public class Partie implements Serializable {
                             listeJoueur.add(joueurActuel);
                         }
                         case SAUVEGARDER_ET_QUITTER -> {
+                            listeJoueur.add(joueurActuel);
                             sauvegarderPartie();
                         }
                         case METTRE_FIN_ET_QUITTER -> {
+                            listeJoueur.add(joueurActuel);
                             partieEstTerminer = true;
                             gagnant = determinerGagant();
                         }
@@ -126,12 +128,12 @@ public class Partie implements Serializable {
             if (choix == ChoixMenuDansPartie.SAUVEGARDER_ET_QUITTER) {
                 System.out.println("La partie a été sauvegardée");
             } else {
-                if (gagnant.size()==1){
+                if (listeJoueur.size()==1){
                     System.out.println("La partie est terminée et le gagant est " + gagnant.get(0).getNom());
                 } else {
                     System.out.print("La partie est terminée et les gagants sont ");
                     for (Joueur j:gagnant) {
-                        System.out.println(j.getNom() + " ");
+                        System.out.print(j.getNom() + " ");
                     }
                 }
             }
@@ -152,10 +154,15 @@ public class Partie implements Serializable {
                 } else if (j.retourneArgentTotal() > tempArgent) {
                     tempArgent = j.retourneArgentTotal();
                     tempJoueurRiche.clear();
-
                     tempJoueurRiche.add(j);
                 }
             }
+        }
+
+        System.out.println();
+        System.out.println("\033[39m************** Tableau de l'argent et des propriétés des joueurs à la fin de la partie **************\033[39m");
+        for (Joueur j:listeJoueur) {
+            System.out.println(j);
         }
 
         return tempJoueurRiche;

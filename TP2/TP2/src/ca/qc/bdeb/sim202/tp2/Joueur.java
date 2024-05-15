@@ -65,6 +65,14 @@ public class Joueur implements Serializable {
         return argentTotal;
     }
 
+    @Override
+    public String toString() {
+        if (isFaillite()){
+            return nom + " a fait faillite";
+        } else {
+            return nom + " possède: les propriétés " + listePropriete.toString() + " et il a fini avec: " + nombreArgent;
+        }
+    }
 }
 
 
