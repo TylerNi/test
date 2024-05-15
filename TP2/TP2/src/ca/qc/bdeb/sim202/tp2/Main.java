@@ -9,15 +9,19 @@ public class Main {
         switch (menu()) {
             case CHARGER_SAUVEGARDE -> {
                 Partie partie = Partie.lirePartie();
-                partie.commencerPartie(partie);
+                partie.jouerPartie();
             }
             case NOUVELLE_PARTIE -> {
                 System.out.println("\033[33mCréation d'une nouvelle partie \033[39m");
                 PlateauDeJeu plateauDeJeu = new PlateauDeJeu();
                 System.out.println();
                 LinkedList<Joueur> listeJoueur = MenuListeJoueur();
-                Partie partie = new Partie(plateauDeJeu, listeJoueur, 0);
-                partie.commencerPartie(partie);
+                Partie partie = new Partie(plateauDeJeu, listeJoueur);
+                partie.introPArtie();
+                partie.jouerPartie();
+                if (!partie.isPartieEstTerminer()) {
+                    Partie.sauvegarderPartie(partie);
+                }
             }
             case QUITTER -> {
                 System.out.println("Merci d'avoir jouer, à la prochaine");

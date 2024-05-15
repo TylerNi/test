@@ -16,24 +16,28 @@ public class Partie implements Serializable {
 
     private LinkedList<Joueur> gagnant;
 
-    public Partie(PlateauDeJeu plateauDeJeu, LinkedList<Joueur> listeJoueur, int indicateur) {
+    public Partie(PlateauDeJeu plateauDeJeu, LinkedList<Joueur> listeJoueur) {
         this.plateauDeJeu = plateauDeJeu;
         this.listeJoueur = listeJoueur;
         this.partieEstTerminer = false;
         this.gagnant = new LinkedList<>();
     }
 
-    public void commencerPartie(Partie partie) {
+    public void introPArtie() {
+        System.out.println();
+        System.out.println("************************ Le plateau ************************");
+        Case[] liste = plateauDeJeu.getListeCase();
+
+        for (int i = 0; i < liste.length; i++) {
+            System.out.print("\033[34m" + i + ": \033[39m");
+            System.out.println("\033[34m" + liste[i] + "\033[39m");
+        }
+
+    }
+
+    public void jouerPartie() {
         if (!partieEstTerminer) {
-            System.out.println();
-            System.out.println("************************ Le plateau ************************");
             Case[] liste = plateauDeJeu.getListeCase();
-
-            for (int i = 0; i < liste.length; i++) {
-                System.out.print("\033[34m" + i + ": \033[39m");
-                System.out.println("\033[34m" + liste[i] + "\033[39m");
-            }
-
             ChoixMenuDansPartie choix = null;
             do {
                 int nbJoueurFaillite = 0;
@@ -114,7 +118,6 @@ public class Partie implements Serializable {
                         }
                         case SAUVEGARDER_ET_QUITTER -> {
                             listeJoueur.add(joueurActuel);
-                            sauvegarderPartie(partie);
                         }
                         case METTRE_FIN_ET_QUITTER -> {
                             listeJoueur.add(joueurActuel);
@@ -130,11 +133,11 @@ public class Partie implements Serializable {
             if (choix == ChoixMenuDansPartie.SAUVEGARDER_ET_QUITTER) {
                 System.out.println("La partie a été sauvegardée");
             } else {
-                if (listeJoueur.size()==1){
+                if (listeJoueur.size() == 1) {
                     System.out.println("La partie est terminée et le gagant est " + gagnant.get(0).getNom());
                 } else {
                     System.out.print("La partie est terminée et les gagants sont ");
-                    for (Joueur j:gagnant) {
+                    for (Joueur j : gagnant) {
                         System.out.print(j.getNom() + " ");
                     }
                 }
@@ -163,7 +166,7 @@ public class Partie implements Serializable {
 
         System.out.println();
         System.out.println("\033[39m************** Tableau de l'argent et des propriétés des joueurs à la fin de la partie **************\033[39m");
-        for (Joueur j:listeJoueur) {
+        for (Joueur j : listeJoueur) {
             System.out.println(j);
         }
 
@@ -175,7 +178,7 @@ public class Partie implements Serializable {
         String choix;
 
         System.out.println("""
-                
+                                
                 1) Lancer le dé\s
                 2) Sauvegarder et quitter\s
                 3) Mettre fin et quitter""");
@@ -202,15 +205,21 @@ public class Partie implements Serializable {
         }
     }
 
-    public static Partie lirePartie(){
+    public static Partie lirePartie() {
         try (FileInputStream fichier = new FileInputStream(SAUVEGARDE_DAT);
              ObjectInputStream ois = new ObjectInputStream(fichier)) {
-            return  (Partie) ois.readObject();
+
+            return (Partie) ois.readObject();
+
         } catch (java.io.IOException e) {
             System.out.println("Erreur d'entrées-sorties");
         } catch (ClassNotFoundException e) {
             System.out.println("Erreur classe introuvable");
         }
         return null;
+    }
+
+    public boolean isPartieEstTerminer() {
+        return partieEstTerminer;
     }
 }
