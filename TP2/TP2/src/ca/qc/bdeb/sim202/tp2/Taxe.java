@@ -23,6 +23,7 @@ public class Taxe extends Case{
     public void survolerCase(Joueur j) {
         if (!j.isFaillite()) {
             j.setNombreArgent(j.getNombreArgent() - (int) (montantTaxe*0.1) );
+            System.out.println("Vous devez payer " + (int) (montantTaxe*0.1) + "$ en taxes" );
         }
     }
 

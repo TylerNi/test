@@ -12,14 +12,11 @@ public class Partie implements Serializable {
 
     private boolean partieEstTerminer;
 
-    private int indicateur;
-
     private LinkedList<Joueur> gagnant;
 
     public Partie(PlateauDeJeu plateauDeJeu, LinkedList<Joueur> listeJoueur, int indicateur) {
         this.plateauDeJeu = plateauDeJeu;
         this.listeJoueur = listeJoueur;
-        this.indicateur = indicateur;
         this.partieEstTerminer = false;
         this.gagnant = new LinkedList<>();
     }
@@ -43,13 +40,9 @@ public class Partie implements Serializable {
                     }
                 }
 
-                if (nbJoueurFaillite == listeJoueur.size() - 1) {
+                if (nbJoueurFaillite == 1) {
                     partieEstTerminer = true;
-                    for (Joueur j : listeJoueur) {
-                        if (!j.isFaillite()) {
-                            gagnant.add(j);
-                        }
-                    }
+                    gagnant = determinerGagant();
                 }
 
 
@@ -79,8 +72,8 @@ public class Partie implements Serializable {
                                 System.out.println("Le joueur " + joueurActuel.getNom() + " a obtenu: " + valeurDe);
 
                                 if (joueurActuel.getPosition() == 14) {
-                                    joueurActuel.setPosition(-1);
-                                    for (int i = joueurActuel.getPosition() + 1; i < joueurActuel.getPosition() + valeurDe; i++) {
+                                    joueurActuel.setPosition(0);
+                                    for (int i = joueurActuel.getPosition(); i < joueurActuel.getPosition() + valeurDe; i++) {
                                         plateauDeJeu.getListeCase()[i].survolerCase(joueurActuel);
                                     }
                                     joueurActuel.setPosition(joueurActuel.getPosition() + valeurDe);
@@ -93,7 +86,7 @@ public class Partie implements Serializable {
                                         plateauDeJeu.getListeCase()[i].survolerCase(joueurActuel);
                                     }
                                     joueurActuel.setPosition(0);
-                                    for (int i = joueurActuel.getPosition() + 1; i < joueurActuel.getPosition() + valeurDe2; i++) {
+                                    for (int i = joueurActuel.getPosition(); i < joueurActuel.getPosition() + valeurDe2; i++) {
                                         plateauDeJeu.getListeCase()[i].survolerCase(joueurActuel);
                                     }
                                     joueurActuel.setPosition(joueurActuel.getPosition() + valeurDe2);

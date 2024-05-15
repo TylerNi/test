@@ -11,6 +11,7 @@ public class Depart extends Case{
     void faireAction(Joueur j) {
         if (!j.isFaillite()) {
             j.setNombreArgent(j.getNombreArgent() + montantGagne);
+            System.out.println("Vous avez passer la case départ réclamé " + montantGagne + "$" );
         }
     }
 
@@ -18,6 +19,7 @@ public class Depart extends Case{
     public void survolerCase(Joueur j) {
         if (!j.isFaillite()) {
             j.setNombreArgent(j.getNombreArgent() + montantGagne);
+            System.out.println("Vous avez passer la case départ réclamé " + montantGagne + "$" );
         }
     }
 
