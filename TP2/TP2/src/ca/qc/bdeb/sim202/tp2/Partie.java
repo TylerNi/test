@@ -81,4 +81,6 @@ public class Partie implements Serializable {
         return ChoixMenuDansPartie.getValeurAvecIndice(choix);
     }
 
+
+
 }
