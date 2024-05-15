@@ -14,9 +14,16 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        Partie partie = Partie.lirePartie();
+        if (partie == null) {
+            System.out.println("Il n'y a pas de partie sauvegardée");
+        }
+
         switch (menu()) {
             case CHARGER_SAUVEGARDE -> {
-                Partie partie = Partie.lirePartie();
+                if (partie == null) {
+                    System.out.println("Il n'y a pas de partie sauvegardée");
+                }
                 partie.jouerPartie();
             }
             case NOUVELLE_PARTIE -> {
@@ -24,7 +31,7 @@ public class Main {
                 PlateauDeJeu plateauDeJeu = new PlateauDeJeu();
                 System.out.println();
                 LinkedList<Joueur> listeJoueur = MenuListeJoueur();
-                Partie partie = new Partie(plateauDeJeu, listeJoueur);
+                partie = new Partie(plateauDeJeu, listeJoueur);
                 partie.introPArtie();
                 partie.jouerPartie();
                 if (!partie.isPartieEstTerminer()) {

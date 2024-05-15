@@ -28,7 +28,7 @@ public class Taxe extends Case implements Serializable {
      * @param j le joueur qui arrive sur la case
      */
     @Override
-    void faireAction(Joueur j) {
+    void faireAction(Joueur j, int valeurDe) {
         if (!j.isFaillite()) {
             System.out.println();
             if (j.getNombreArgent()<montantTaxe){

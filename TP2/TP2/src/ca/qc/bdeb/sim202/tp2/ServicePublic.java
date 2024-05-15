@@ -27,9 +27,8 @@ public class ServicePublic extends CasePropriete implements Serializable {
      * @param joueur le joueur qui paie le loyer
      * @return le loyer de la case
      */
-    public int setLoyer(int loyer, Joueur joueur, int valeurDe){
-        loyer = 10 * valeurDe;
-        return loyer;
+    public int setLoyer(int valeurDe){
+        return 10 * valeurDe;
     }
 
     /**
@@ -38,7 +37,7 @@ public class ServicePublic extends CasePropriete implements Serializable {
      * @param joueur le joueur qui arrive sur la case
      */
     @Override
-    void faireAction(Joueur joueur) {
+    void faireAction(Joueur joueur, int valeurDe) {
         System.out.println();
         System.out.println("Vous êtes sur la case: " + nomCase);
         if(getProprietaire() == null){ //S'il n'y a pas de propriétaire, le joueur l'achète.
@@ -52,10 +51,10 @@ public class ServicePublic extends CasePropriete implements Serializable {
                 System.out.println("\033[38m" + joueur.getNom() + " n'a pas assez d'argent, il ne peut donc pas acheter " + nomCase + "\033[39m");
             }
 
-        }else if(getProprietaire().getNom().equals(joueur.getNom())){ //S'il y a un propriétaire autre que lui même,
+        }else if(!getProprietaire().getNom().equals(joueur.getNom())){ //S'il y a un propriétaire autre que lui même,
             System.out.println("Cette case appartient a " + getProprietaire().getNom());
             if (joueur.getNombreArgent() >= getLoyer()) {
-                joueur.setNombreArgent(joueur.getNombreArgent() - getLoyer()); //le joueur paye le loyer au propriétaire.
+                joueur.setNombreArgent(joueur.getNombreArgent() - setLoyer(valeurDe)); //le joueur paye le loyer au propriétaire.
                 getProprietaire().setNombreArgent(getProprietaire().getNombreArgent() + getLoyer());
                 System.out.println("\033[38m" + joueur.getNom() + " a payé " + this.getLoyer() + "$ a " + getProprietaire() + "." + "\033[35m");
                 System.out.println("\033[38m" + joueur.getNom() + " a maintenant " + joueur.getNombreArgent() + "$ et " + getProprietaire() + getProprietaire().getNombreArgent() + "$" + "\033[39m");

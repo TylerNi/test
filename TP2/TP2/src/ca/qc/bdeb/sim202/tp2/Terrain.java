@@ -41,7 +41,7 @@ public class Terrain extends CasePropriete implements Serializable {
      * @param joueur le joueur qui arrive sur la case
      */
     @Override
-    void faireAction(Joueur joueur) {
+    void faireAction(Joueur joueur, int valeurDe) {
         System.out.println();
         System.out.println("Vous êtes sur la case: " + nomCase);
         if(getProprietaire() == null){ //S'il n'y a pas de propriétaire, le joueur l'achète.

@@ -29,7 +29,7 @@ public class Depart extends Case implements Serializable {
      * @param j le joueur qui arrive sur la case
      */
     @Override
-    void faireAction(Joueur j) {
+    void faireAction(Joueur j, int valeurDe) {
         if (!j.isFaillite()) {
             j.setNombreArgent(j.getNombreArgent() + montantGagne);
             System.out.println();

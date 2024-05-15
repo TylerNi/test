@@ -70,5 +70,5 @@ public abstract class CasePropriete extends Case implements Serializable {
      *
      * @param joueur le joueur qui arrive sur la case
      */
-    abstract void faireAction(Joueur joueur);
+    abstract void faireAction(Joueur joueur, int valeurDe);
 }

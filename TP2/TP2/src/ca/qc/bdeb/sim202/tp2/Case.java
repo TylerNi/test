@@ -66,7 +66,7 @@ public abstract class Case implements Serializable {
      *
      * @param joueur le joueur qui arrive sur la case
      */
-    abstract void faireAction(Joueur joueur);
+    abstract void faireAction(Joueur joueur, int valeurDe);
 
     /**
      * Méthode abstraite pour définir l'action à effectuer lorsqu'un joueur survole cette case.

@@ -124,7 +124,7 @@ public class Partie implements Serializable {
                                     joueurActuel.setPosition(joueurActuel.getPosition() + valeurDe);
                                 }
 
-                                plateauDeJeu.getListeCase()[joueurActuel.getPosition()].faireAction(joueurActuel);
+                                plateauDeJeu.getListeCase()[joueurActuel.getPosition()].faireAction(joueurActuel, valeurDe);
                                 System.out.println();
 
 
