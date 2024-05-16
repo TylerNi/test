@@ -49,6 +49,8 @@ public class Partie implements Serializable {
 
     /**
      * Méthode pour jouer la partie.
+     * Qui a chaque manche propose 3 options, soit sauvegarder, fini la partie ou lancer le dé.
+     * Cette méthode va ensuite executer les actions associés au choix fait.
      */
     public void jouerPartie() {
         if (!partieEstTerminer) {
